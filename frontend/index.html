@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic RAG Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="background-blob shape-1"></div>
+    <div class="background-blob shape-2"></div>
+
+    <div class="container glass-panel">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-brain glow-icon"></i>
+                <h1>Advanced <span>Agentic RAG</span></h1>
+            </div>
+            <p>Upload your resume to instantly match with top jobs using autonomous AI workflows.</p>
+        </header>
+
+        <div class="upload-section" id="drop-zone">
+            <input type="file" id="file-input" accept="application/pdf" hidden />
+            <div class="upload-content">
+                <div class="icon-pulse">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <h3>Drag & Drop your Resume (PDF)</h3>
+                <p>or click to browse your files</p>
+                <div class="file-info" id="file-info" style="display: none;">
+                    <i class="fa-regular fa-file-pdf"></i>
+                    <span id="file-name"></span>
+                </div>
+            </div>
+        </div>
+
+        <button id="analyze-btn" class="analyze-btn" disabled>
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Analyze Resume
+        </button>
+
+        <div class="loading-state glass-panel" id="loading-state">
+            <div class="spinner"></div>
+            <p>AI Agent is vectorizing, reasoning, and searching for jobs...</p>
+        </div>
+
+        <div class="result-section glass-panel" id="result-section">
+            <h2 class="result-title"><i class="fa-solid fa-chart-pie"></i> Analysis & Job Matches</h2>
+            
+            <div id="chat-history" class="chat-history">
+                <div id="markdown-result" class="chat-message assistant-message markdown-body"></div>
+            </div>
+
+            <div class="chat-input-container" id="chat-input-container" style="display: none;">
+                <input type="text" id="chat-input" placeholder="Ask a follow-up question... (e.g. 'Show only remote Python jobs')" />
+                <button id="send-btn" class="send-btn">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marked.js for parsing Markdown response -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
